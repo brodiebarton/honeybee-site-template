@@ -2,7 +2,7 @@
 
 * {
   font-size: 100%;
-  font-family: Raleway;
+  font-family: Raleway, Helvetica, Arial, sans-serif;
   box-sizing: border-box;
 }
 
@@ -10,6 +10,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 ol,
@@ -18,8 +19,24 @@ ul {
   list-style: none;
 }
 
+hr {
+	/* display: block; */
+	/* position: relative; */
+	/* padding: 0; */
+	margin: 8px auto;
+	/* height: 0; */
+	width: 100vw;
+	max-height: 0;
+	font-size: 1px;
+	line-height: 0;
+	/* clear: both; */
+	border: none;
+	border-top: 0.5em solid #eec643;
+	border-bottom: 0.5em solid #eec643;
+	overflow: hidden;
+ }
+
 body {
-  font-family: Helvetica, sans-serif;
   font-size: 1.25rem;
   line-height: 1.5;
 
@@ -47,24 +64,26 @@ body {
   background-color: #eec643;
 }
 
-#main-header > * {
-}
+#main-header hr {
+	border-top: 1em solid #141414;
+	border-bottom: 1em solid #141414;
+  }
 
 #site-title {
   font-size: 3rem;
 }
 
-#intro {
-}
-
 #main-menu {
   padding: 0;
   display: flex;
+  width: 90vw;
+  justify-content: space-evenly;
   color: #eef0f2;
 }
 
 #main-menu li {
-  margin: 0.5em;
+	font-weight: 400;
+  	margin: 0 1em 0 1em;
 }
 
 #main-menu a {
@@ -72,32 +91,93 @@ body {
   color: #141414;
 }
 
+#main-menu li a:hover{
+	font-weight: 600;
+}
+
 .feature {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
   max-width: 900px;
-  /* margin: 0 auto; */
-  margin: 1em;
+  margin: 0.75em;
 }
 
 .feature h2 {
-  color: #eef0f2;
-  font-size: 1.5rem;
-  font-weight: 300;
+	color: #141414;
+	font-size: 2rem;
+	font-weight: 300;
+	padding: 0 0.5em 0 0.5em;
+}
+
+.feature-header {
+	background-color: #eec643;
+	width: 100vw;
+}
+
+.feature-content {
+	width: 90vw;
 }
 
 .pic-fit {
   max-width: 100%;
 }
 
-#contact {
-}
+/* #contact {
+} */
 
 footer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
   width: 100vw;
+  min-height: 80px;
   text-align: center;
+  justify-content: baseline;
   background-color: #eec643;
   color: #141414;
 }
 
 /* Media Queries */
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
+
+	#main-menu li {
+		margin: 0 2em 0 2em;
+	}
+
+	.feature {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		flex-wrap: wrap;
+	  max-width: 900px;
+	  margin: 0.75em;
+	}
+	
+	.feature h2 {
+		color: #141414;
+		font-size: 2rem;
+		font-weight: 300;
+		padding: 0 0.5em 0 0.5em;
+	}
+	
+	.feature-header {
+		background-color: #eec643;
+		width: 100vw;
+	}
+	
+	.feature-content {
+		display: flex;
+		align-items: center;
+		width: 90vw;
+		flex: 1 1 auto;
+	}
+
+	.feature-content > * {
+		padding: 0 0.5em 0 0.5em;
+	}
+	
+	.pic-fit {
+	  max-width: 50%;
+	}
 }
